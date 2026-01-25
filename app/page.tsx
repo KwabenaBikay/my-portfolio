@@ -71,7 +71,7 @@ export default function Home() {
             {/* 3. THE IMAGE ITSELF (Circular Mask) */}
             <div className="absolute inset-2 sm:inset-4 rounded-full overflow-hidden border-4 border-white dark:border-gray-900 shadow-2xl z-10 bg-white">
                <Image
-                src="/images/bikay2.jpg"
+                src="/images/profile.jpg"
                 alt="Bismark Amanpene"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-700"
