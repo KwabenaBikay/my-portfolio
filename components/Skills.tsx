@@ -47,7 +47,7 @@ export default function SkillsPage() {
   return (
     <section className="min-h-screen py-20 bg-gray-100 dark:bg-gray-900" id="skills">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-4">
@@ -62,19 +62,19 @@ export default function SkillsPage() {
         {/* Skills Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {SKILL_CATEGORIES.map((category, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="bg-white dark:bg-gray-800 p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 border-t-4 border-primary group relative overflow-hidden"
             >
               <div className="relative z-10">
                 <div className="w-14 h-14 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center justify-center text-primary shadow-sm mb-6 group-hover:scale-110 transition-transform">
                   {category.icon}
                 </div>
-                
+
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
                   {category.title}
                 </h3>
-                
+
                 {/* This was the broken line before */}
                 <p className="text-gray-600 dark:text-gray-400 text-sm mb-6 leading-relaxed">
                   {category.description}
@@ -82,7 +82,7 @@ export default function SkillsPage() {
 
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill, idx) => (
-                    <span 
+                    <span
                       key={idx}
                       className="text-xs font-semibold px-2.5 py-1 bg-primary/10 dark:bg-primary/20 text-primary rounded-md border border-primary/10"
                     >

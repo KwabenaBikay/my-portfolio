@@ -93,7 +93,7 @@ const services: ServiceItem[] = [
     id: "education-training",
     title: "IT Education & Corporate Training",
     description:
-      "Comprehensive IT education tailored for all levels—from Upper Primary students to Tertiary graduates and corporate staff.",
+      "Comprehensive IT education tailored for all levels-from Upper Primary students to Tertiary graduates and corporate staff.",
     category: "Education & Training",
     servicesList: [
       "ICT Tuition (Upper Primary to High School)",
@@ -113,17 +113,17 @@ export default function ServicesPage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-background-dark text-gray-800 dark:text-gray-200 pt-32 pb-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      
+
       {/* --- BACKGROUND PATTERN --- */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.4] z-0" 
-           style={{
-             backgroundImage: 'radial-gradient(#d15e11ff 1px, transparent 1px)',
-             backgroundSize: '30px 30px'
-           }}>
+      <div className="absolute inset-0 pointer-events-none opacity-[0.4] z-0"
+        style={{
+          backgroundImage: 'radial-gradient(#d15e11ff 1px, transparent 1px)',
+          backgroundSize: '30px 30px'
+        }}>
       </div>
 
       <div className="max-w-5xl mx-auto flex flex-col gap-12 relative z-10">
-        
+
         {/* --- HEADER --- */}
         <section className="space-y-6">
           <div className="inline-block">
@@ -131,14 +131,14 @@ export default function ServicesPage() {
               What I Offer
             </span>
           </div>
-          
+
           <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-gray-900 dark:text-white">
-            Data Analytics & <br/>
+            Data Analytics & <br />
             <span className="text-primary">IT Services</span>
           </h1>
-          
+
           <p className="text-gray-600 dark:text-gray-400 text-lg sm:text-xl max-w-3xl leading-relaxed">
-            From advanced Data Analytics and Machine Learning to essential Networking and IT Education. 
+            From advanced Data Analytics and Machine Learning to essential Networking and IT Education.
             I provide a comprehensive suite of technical services tailored to your needs.
           </p>
         </section>
@@ -157,14 +157,14 @@ export default function ServicesPage() {
           <div className="space-y-4">
             {services.map((service) => {
               const isOpen = openId === service.id;
-              
+
               return (
                 <div
                   key={service.id}
                   className={`
                     group rounded-2xl border transition-all duration-300 overflow-hidden
-                    ${isOpen 
-                      ? "bg-white dark:bg-gray-900 border-primary/30 shadow-lg ring-1 ring-primary/10" 
+                    ${isOpen
+                      ? "bg-white dark:bg-gray-900 border-primary/30 shadow-lg ring-1 ring-primary/10"
                       : "bg-white/60 dark:bg-gray-900/60 border-gray-200 dark:border-gray-700 hover:border-primary/30 hover:shadow-md"
                     }
                   `}
@@ -178,21 +178,21 @@ export default function ServicesPage() {
                       {/* Category Label with Color Coding */}
                       <span className={`
                         text-xs font-bold uppercase tracking-wider w-fit px-2 py-0.5 rounded
-                        ${service.category === 'Data Analytics' ? 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400' : 
+                        ${service.category === 'Data Analytics' ? 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400' :
                           service.category === 'Machine Learning' ? 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400' :
-                          service.category === 'Cloud Computing' ? 'bg-sky-100 text-sky-700 dark:bg-sky-900/30 dark:text-sky-400' :
-                          service.category === 'Web Development' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400' :
-                          service.category === 'Networking' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400' :
-                          'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400'}
+                            service.category === 'Cloud Computing' ? 'bg-sky-100 text-sky-700 dark:bg-sky-900/30 dark:text-sky-400' :
+                              service.category === 'Web Development' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400' :
+                                service.category === 'Networking' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400' :
+                                  'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400'}
                       `}>
                         {service.category}
                       </span>
-                      
+
                       <span className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">
                         {service.title}
                       </span>
                     </div>
-                    
+
                     {/* Arrow Icon */}
                     <div className={`
                       flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300
@@ -209,7 +209,7 @@ export default function ServicesPage() {
                   `}>
                     <div className="overflow-hidden">
                       <div className="px-6 sm:px-8 pb-8 pt-2">
-                        
+
                         <p className="text-base text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                           {service.description}
                         </p>

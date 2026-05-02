@@ -12,8 +12,8 @@ export default function Navbar() {
     { href: "/about", label: "About Me" },
     { href: "/projects", label: "Projects" },
     { href: "/services", label: "Services & Support" },
-    
-    
+
+
   ];
 
   const isActive = (href: string) => {
@@ -43,11 +43,10 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                    isActive(link.href)
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${isActive(link.href)
                       ? "bg-primary text-white shadow-md"
                       : "text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:bg-gray-100/50 dark:hover:bg-gray-800/50"
-                  }`}
+                    }`}
                 >
                   {link.label}
                 </Link>
@@ -100,11 +99,10 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`px-4 py-3 rounded-lg text-sm font-medium transition-all ${
-                    isActive(link.href)
+                  className={`px-4 py-3 rounded-lg text-sm font-medium transition-all ${isActive(link.href)
                       ? "bg-primary text-white"
                       : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-                  }`}
+                    }`}
                 >
                   {link.label}
                 </Link>
