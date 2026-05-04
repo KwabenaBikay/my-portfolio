@@ -7,9 +7,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#d15e11ff",
-        "background-light": "#f6f6f8",
-        "background-dark": "#101622"
+        primary: "#FF5722", // The Vibrant Orange from your image
+        "background-light": "#FAFAFA", // Crisp, clean white
+        "background-dark": "#18181B" // Deep charcoal black
       },
       fontFamily: {
         display: ["Inter", "sans-serif"],

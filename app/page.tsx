@@ -42,7 +42,8 @@ const SOCIAL_LINKS = [
 
 export default function Home() {
   return (
-    <div className="relative flex flex-col min-h-screen bg-orange-50 dark:bg-[#1A1108] text-gray-900 dark:text-gray-100 font-sans overflow-hidden">
+    // Updated background colors to use the new light/dark config variables!
+    <div className="relative flex flex-col min-h-screen bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 font-sans overflow-hidden">
 
       {/* --- HERO SECTION --- */}
       <section className="relative flex flex-col md:flex-row items-center justify-between min-h-[90vh] pt-24 pb-20 px-6 sm:px-12 lg:px-16 max-w-[1400px] mx-auto w-full gap-12 lg:gap-20">
@@ -80,7 +81,7 @@ export default function Home() {
           <div className="flex flex-col gap-6">
 
             {/* Minimalist Status Badge */}
-            <div className="inline-flex items-center gap-3 px-4 py-2 border border-gray-200 dark:border-gray-800 bg-white dark:bg-black rounded-none w-fit">
+            <div className="inline-flex items-center gap-3 px-4 py-2 border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#1A1A1A] rounded-none w-fit">
               <span className="w-2 h-2 bg-green-500 rounded-none animate-pulse"></span>
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
                 Status: Available
@@ -110,14 +111,12 @@ export default function Home() {
             >
               View My Work
             </Link>
-            <a
-              href="https://drive.google.com/file/d/1vGIJNPjPctR-tjzc7fQq71dVHwSze-qd/view?usp=drive_link"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/contact"
               className="flex items-center justify-center px-8 h-14 bg-transparent border border-gray-400 dark:border-gray-600 text-gray-900 dark:text-white font-bold text-sm uppercase tracking-[0.1em] rounded-none hover:border-gray-900 dark:hover:border-white transition-colors duration-300"
             >
               Hire Me
-            </a>
+            </Link>
           </div>
 
           {/* Brand-Colored Social Links */}
@@ -127,7 +126,7 @@ export default function Home() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className={`flex items-center justify-center w-12 h-12 bg-white dark:bg-black border border-gray-200 dark:border-gray-800 text-gray-400 rounded-none transition-all duration-300 hover:border-current hover:bg-gray-50 dark:hover:bg-gray-900 ${link.hoverColor}`}
+                  className={`flex items-center justify-center w-12 h-12 bg-white dark:bg-[#1A1A1A] border border-gray-200 dark:border-gray-800 text-gray-400 rounded-none transition-all duration-300 hover:border-current hover:bg-gray-50 dark:hover:bg-black ${link.hoverColor}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.label}
@@ -148,40 +147,6 @@ export default function Home() {
       <div className="relative z-20 pb-24 border-t border-gray-200 dark:border-gray-800/50 mt-10">
         <Skills />
       </div>
-
-      {/* --- FOOTER SECTION --- */}
-      <footer className="w-full bg-primary py-12 px-6 sm:px-12 lg:px-16 border-t-4 border-gray-900 dark:border-white z-20 relative">
-        <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-
-          <div className="text-center md:text-left">
-            <h2 className="text-3xl font-black uppercase tracking-[0.1em] text-gray-900">
-              Bismark.
-            </h2>
-            <p className="text-gray-900 font-semibold mt-2 text-sm uppercase tracking-widest opacity-80">
-              © {new Date().getFullYear()} All Rights Reserved.
-            </p>
-          </div>
-
-          <div className="flex gap-4">
-            {SOCIAL_LINKS.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-gray-900 hover:text-white transition-colors duration-300"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={link.label}
-              >
-                <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
-                  <path d={link.path} fillRule={link.fillRule as any} clipRule={link.clipRule as any} />
-                </svg>
-              </a>
-            ))}
-          </div>
-
-        </div>
-      </footer>
-
     </div>
   );
 }
