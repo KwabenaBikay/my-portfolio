@@ -1,6 +1,7 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import Skills from '../components/Skills'
 
 // --- SOCIAL LINKS DATA WITH BRAND HOVER COLORS ---
 const SOCIAL_LINKS = [
@@ -42,25 +43,18 @@ const SOCIAL_LINKS = [
 
 export default function Home() {
   return (
-    // Updated background colors to use the new light/dark config variables!
     <div className="relative flex flex-col min-h-screen bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 font-sans overflow-hidden">
 
-      {/* --- HERO SECTION --- */}
+      {/* --- HERO SECTION (Untouched) --- */}
       <section className="relative flex flex-col md:flex-row items-center justify-between min-h-[90vh] pt-24 pb-20 px-6 sm:px-12 lg:px-16 max-w-[1400px] mx-auto w-full gap-12 lg:gap-20">
 
         {/* === LEFT: FULL RECTANGULAR IMAGE WITH GEOMETRIC ACCENTS === */}
         <div className="w-full md:w-1/2 flex justify-center md:justify-start relative z-10">
-
-          {/* Sharp Geometric Background Accents */}
           <div className="absolute -top-6 -left-6 w-full h-full border border-gray-200 dark:border-gray-800/50 z-0 hidden md:block"></div>
           <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 z-0 hidden md:block"></div>
-
-          {/* Strict Dot Grid Accent on the LEFT edge of the image container */}
           <div className="absolute top-1/2 -left-12 transform -translate-y-1/2 w-24 h-48 opacity-30 z-20 pointer-events-none hidden md:block"
             style={{ backgroundImage: 'radial-gradient(currentColor 2px, transparent 2px)', backgroundSize: '12px 12px' }}>
           </div>
-
-          {/* Image Container */}
           <div className="relative w-full max-w-[500px] aspect-[4/5] bg-white dark:bg-black z-10 border border-gray-200 dark:border-gray-800 p-2 rounded-none shadow-xl">
             <div className="relative w-full h-full overflow-hidden rounded-none bg-gray-100 dark:bg-gray-900">
               <Image
@@ -77,23 +71,16 @@ export default function Home() {
 
         {/* === RIGHT: TEXT CONTENT === */}
         <div className="w-full md:w-1/2 flex flex-col gap-10 z-10 relative text-left">
-
           <div className="flex flex-col gap-6">
-
-            {/* Minimalist Status Badge */}
             <div className="inline-flex items-center gap-3 px-4 py-2 border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#1A1A1A] rounded-none w-fit">
               <span className="w-2 h-2 bg-green-500 rounded-none animate-pulse"></span>
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
                 Status: Available
               </span>
             </div>
-
-            {/* Massive Bold Welcome */}
             <h1 className="text-[4rem] sm:text-[6rem] lg:text-[7rem] xl:text-[8rem] font-black uppercase tracking-tighter leading-[0.85] text-gray-900 dark:text-white">
               WELCOME.
             </h1>
-
-            {/* Clean Description */}
             <p className="text-base sm:text-lg lg:text-xl text-gray-700 dark:text-gray-300 max-w-xl leading-relaxed border-l-2 border-primary pl-6 py-1">
               A passionate and dedicated professional with a diverse skill set in{" "}
               <span className="text-gray-900 dark:text-white font-semibold">Data Analytics</span>,{" "}
@@ -102,8 +89,6 @@ export default function Home() {
               <span className="text-gray-900 dark:text-white font-semibold">IT Support</span>.
             </p>
           </div>
-
-          {/* Sharp Modern Buttons */}
           <div className="flex flex-wrap items-center gap-4">
             <Link
               href="/projects"
@@ -118,8 +103,6 @@ export default function Home() {
               Hire Me
             </Link>
           </div>
-
-          {/* Brand-Colored Social Links */}
           <div className="flex pt-4">
             <div className="flex gap-4">
               {SOCIAL_LINKS.map((link) => (
@@ -138,15 +121,166 @@ export default function Home() {
               ))}
             </div>
           </div>
-
         </div>
 
       </section>
 
-      {/* Skills Section */}
-      <div className="relative z-20 pb-24 border-t border-gray-200 dark:border-gray-800/50 mt-10">
-        <Skills />
-      </div>
+      {/* --- SECTION 01: CORE DISCIPLINES (Sharp Editorial Cards) --- */}
+      <section className="relative z-20 py-24 bg-gray-50 dark:bg-[#0A0A0C] border-t border-gray-200 dark:border-white/10">
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-16">
+
+          <div className="flex items-center gap-4 mb-12">
+            <div className="h-px bg-primary flex-grow max-w-[40px]"></div>
+            <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-gray-900 dark:text-white">What I Do</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+
+            {/* Sharp Card 1 */}
+            <div className="group bg-white dark:bg-[#121214] p-8 sm:p-10 rounded-none border border-gray-200 dark:border-white/10 hover:border-primary dark:hover:border-primary transition-colors duration-300">
+              <div className="w-12 h-12 bg-primary/10 text-primary flex items-center justify-center mb-6 rounded-none">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="square" strokeLinejoin="miter" strokeWidth="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+              </div>
+              <h3 className="text-xl font-black uppercase tracking-tight text-gray-900 dark:text-white mb-4">Data Analytics</h3>
+              <p className="text-gray-600 dark:text-gray-400 font-medium leading-relaxed">
+                Transforming raw datasets into predictive models and actionable business insights to drive smart decision-making.
+              </p>
+            </div>
+
+            {/* Sharp Card 2 */}
+            <div className="group bg-white dark:bg-[#121214] p-8 sm:p-10 rounded-none border border-gray-200 dark:border-white/10 hover:border-primary dark:hover:border-primary transition-colors duration-300">
+              <div className="w-12 h-12 bg-primary/10 text-primary flex items-center justify-center mb-6 rounded-none">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="square" strokeLinejoin="miter" strokeWidth="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+              </div>
+              <h3 className="text-xl font-black uppercase tracking-tight text-gray-900 dark:text-white mb-4">Web Architecture</h3>
+              <p className="text-gray-600 dark:text-gray-400 font-medium leading-relaxed">
+                Designing, building, and deploying highly performant, secure web platforms using modern frameworks like React and Next.js.
+              </p>
+            </div>
+
+            {/* Sharp Card 3 */}
+            <div className="group bg-white dark:bg-[#121214] p-8 sm:p-10 rounded-none border border-gray-200 dark:border-white/10 hover:border-primary dark:hover:border-primary transition-colors duration-300">
+              <div className="w-12 h-12 bg-primary/10 text-primary flex items-center justify-center mb-6 rounded-none">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="square" strokeLinejoin="miter" strokeWidth="1.5" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" /></svg>
+              </div>
+              <h3 className="text-xl font-black uppercase tracking-tight text-gray-900 dark:text-white mb-4">IT Infrastructure</h3>
+              <p className="text-gray-600 dark:text-gray-400 font-medium leading-relaxed">
+                Configuring robust enterprise networks, providing high-level technical support, and managing cloud integrations.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* --- SECTION 02: FEATURED WORKS (Compact 3-Column Grid) --- */}
+      <section className="py-24 px-6 sm:px-12 lg:px-16 max-w-[1400px] mx-auto w-full relative z-20">
+
+        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+          <div className="flex items-center gap-4">
+            <div className="h-px bg-primary flex-grow w-[40px]"></div>
+            <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-gray-900 dark:text-white">Featured Works</h2>
+          </div>
+          <Link href="/projects" className="group flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-gray-500 hover:text-primary transition-colors">
+            View full archive
+            <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="square" strokeLinejoin="miter" strokeWidth="2" d="M5 12h14M12 5l7 7-7 7" /></svg>
+          </Link>
+        </div>
+
+        {/* Sharp 3-Column Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+
+          {/* Project 1 */}
+          <div className="group relative flex flex-col bg-white dark:bg-[#121214] border border-gray-200 dark:border-white/10 rounded-none overflow-hidden transition-colors hover:border-primary dark:hover:border-primary">
+            <div className="relative w-full aspect-video overflow-hidden border-b border-gray-200 dark:border-white/10 bg-gray-100 dark:bg-[#0A0A0C]">
+              <Image
+                src="/images/FYP.png"
+                alt="Student Final CGPA Predictor"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+            </div>
+            <div className="p-6 flex flex-col flex-grow">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-2 block">ML & AI</span>
+              <h3 className="text-xl font-black uppercase tracking-tight text-gray-900 dark:text-white mb-3">Student Final CGPA Predictor</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 font-medium mb-6 flex-grow">Predictive analytics study using 10 years of data to examine SHS subject performance effects. Built MLR and ANN models.</p>
+              <Link href="/projects#FYP" className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.1em] text-gray-900 dark:text-white group-hover:text-primary transition-colors mt-auto">
+                Explore Project <svg className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="square" strokeLinejoin="miter" strokeWidth="2" d="M5 12h14M12 5l7 7-7 7" /></svg>
+              </Link>
+            </div>
+          </div>
+
+          {/* Project 2 */}
+          <div className="group relative flex flex-col bg-white dark:bg-[#121214] border border-gray-200 dark:border-white/10 rounded-none overflow-hidden transition-colors hover:border-primary dark:hover:border-primary">
+            <div className="relative w-full aspect-video overflow-hidden border-b border-gray-200 dark:border-white/10 bg-gray-100 dark:bg-[#0A0A0C]">
+              <Image
+                src="/images/West3.png"
+                alt="West 3 Hotel"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+            </div>
+            <div className="p-6 flex flex-col flex-grow">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-2 block">Web</span>
+              <h3 className="text-xl font-black uppercase tracking-tight text-gray-900 dark:text-white mb-3">West 3 Hotel</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 font-medium mb-6 flex-grow">A premium hotel web architecture to showcase rooms, complete with seamless booking management and a custom admin dashboard.</p>
+              <Link href="/projects#west-3-hotel" className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.1em] text-gray-900 dark:text-white group-hover:text-primary transition-colors mt-auto">
+                Explore Project <svg className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="square" strokeLinejoin="miter" strokeWidth="2" d="M5 12h14M12 5l7 7-7 7" /></svg>
+              </Link>
+            </div>
+          </div>
+
+          {/* Project 3 */}
+          <div className="group relative flex flex-col bg-white dark:bg-[#121214] border border-gray-200 dark:border-white/10 rounded-none overflow-hidden transition-colors hover:border-primary dark:hover:border-primary">
+            <div className="relative w-full aspect-video overflow-hidden border-b border-gray-200 dark:border-white/10 bg-gray-100 dark:bg-[#0A0A0C]">
+              <Image
+                src="/images/excel.png"
+                alt="Corporate Sales Dashboard"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+            </div>
+            <div className="p-6 flex flex-col flex-grow">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-2 block">Data</span>
+              <h3 className="text-xl font-black uppercase tracking-tight text-gray-900 dark:text-white mb-3">Corporate Sales Dashboard</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 font-medium mb-6 flex-grow">A comprehensive Excel dashboard visualizing sales trends, profit by segment, and advanced filtering logic.</p>
+              <Link href="/projects#Sales-Dashboard" className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.1em] text-gray-900 dark:text-white group-hover:text-primary transition-colors mt-auto">
+                Explore Project <svg className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="square" strokeLinejoin="miter" strokeWidth="2" d="M5 12h14M12 5l7 7-7 7" /></svg>
+              </Link>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* --- SECTION 03: THE FINAL PUSH (Sharp Architectural CTA) --- */}
+      <section className="relative z-20 pb-24 px-6 sm:px-12 lg:px-16 max-w-[1400px] mx-auto w-full">
+        {/* Clean, sharp bordered box instead of a massive solid block or rounded pill */}
+        <div className="relative bg-white dark:bg-[#0A0A0C] border border-gray-200 dark:border-white/10 p-12 sm:p-20 text-center flex flex-col items-center rounded-none shadow-sm overflow-hidden">
+
+          {/* Architectural Top Accent Line */}
+          <div className="absolute top-0 left-0 w-full h-1 bg-primary"></div>
+
+          <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-gray-900 dark:text-white mb-6">
+            Ready to build?
+          </h2>
+          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 font-medium mb-10 max-w-xl">
+            Whether you have a specific project in mind or just want to chat about data and development, I am ready to help.
+          </p>
+
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-3 px-10 py-5 border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white font-black text-sm uppercase tracking-[0.2em] rounded-none hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-300"
+          >
+            <span>Let's Talk</span>
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="square" strokeLinejoin="miter" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+          </Link>
+        </div>
+      </section>
+
     </div>
   );
 }

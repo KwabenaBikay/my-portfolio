@@ -23,7 +23,7 @@ export async function submitContactForm(prevState: any, formData: FormData) {
 
   // 2. HONEYPOT SPAM PROTECTION
   if (rawData.honey) {
-    return { success: false, message: "Spam detected." }; 
+    return { success: false, message: "Spam detected." };
   }
 
   // 3. VALIDATE INPUTS

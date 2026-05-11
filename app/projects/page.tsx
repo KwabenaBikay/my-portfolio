@@ -43,11 +43,11 @@ export default function ProjectsPage() {
     {
       id: "DHL",
       category: "Web",
-      title: "DHL-Bweha",
-      description: "A modern, professional, secure brochure website and portal layout for the DHL-Bweha institution.",
-      image: "/images/dhl.jpg",
+      title: "DHL-Bweh",
+      description: "A modern, professional, secure brochure website and portal layout for the DHL-Bweh institution.",
+      image: "/images/dhl-bweh.jpg",
       techs: ["HTML", "CSS", "JavaScript"],
-      link: "https://www.dhl-bweha.com/?i=1#home",
+      link: "https://www.dhl-bweh.com/?i=1#home",
     },
     {
       id: "Personal Portfolio",
@@ -57,6 +57,15 @@ export default function ProjectsPage() {
       image: "/images/port.png",
       techs: ["TypeScript", "React", "Next.js", "Tailwind CSS"],
       link: " ",
+    },
+    {
+      id: "AI",
+      category: "ML & AI",
+      title: "PerfectFarm",
+      description: "PerfectFarm AI is an intelligent agricultural assistant that provides real-time crop diagnostics and  recommendations through simple image uploads. The system instantly detects diseases, pests, and nutient deficiencies while offering actionable prevention strategies and localized weather-driven advisories to optimize yields. To ensure broad accessibility, it supports multiple languages like Swahili, Twi, and Hausa, delivering expert analysis in the farmer's preferred tongue. Users can track their progress through an offline-ready scan history and easily share comprehensive PDF reports with others via messaging apps. Ultimately, this tool empowers farmers by bridging the gap between advanced AI technology and practical, on-the-ground farming solutions.",
+      image: "/images/perfectfarm.png",
+      techs: ["Jupyter", "Python", "Streamlit", "Machine Learning"],
+      link: "https://perfectfarm-434286480857.europe-west2.run.app/",
     },
     {
       id: "FYP",
