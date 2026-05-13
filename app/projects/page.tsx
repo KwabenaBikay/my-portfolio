@@ -47,7 +47,7 @@ export default function ProjectsPage() {
       description: "A modern, professional, secure brochure website and portal layout for the DHL-Bweh institution.",
       image: "/images/dhl-bweh.jpg",
       techs: ["HTML", "CSS", "JavaScript"],
-      link: "https://www.dhl-bweh.com/?i=1#home",
+      link: "https://dhlkasoa.bwehltd.com/",
     },
     {
       id: "Personal Portfolio",
