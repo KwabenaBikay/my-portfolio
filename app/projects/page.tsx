@@ -56,7 +56,7 @@ export default function ProjectsPage() {
       description: "The underlying architecture of this very portfolio, built for maximum performance and brutalist editorial design.",
       image: "/images/port.png",
       techs: ["TypeScript", "React", "Next.js", "Tailwind CSS"],
-      link: " ",
+      link: "https://my-portfolio-431714537301.us-central1.run.app/projects",
     },
     {
       id: "AI",
