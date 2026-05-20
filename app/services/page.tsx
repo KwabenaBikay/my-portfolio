@@ -193,7 +193,6 @@ export default function ServicesPage() {
             <div className="max-w-[1400px] mx-auto flex flex-col gap-12 relative z-10">
 
                 {/* --- ULTRA-CLEAN HEADER WITH RIGHT-SIDE VISUALS & TINTED BACKGROUND --- */}
-                {/* Added bg-primary/5, padding, and subtle border to box it in nicely */}
                 <section className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 p-8 sm:p-12 bg-primary/5 dark:bg-primary/10 border border-primary/20 mb-4 rounded-none">
 
                     {/* Left: Text Content */}
@@ -320,7 +319,8 @@ export default function ServicesPage() {
                                 </p>
 
                                 {/* List Section */}
-                                <div className="mt-8 border-t border-gray-100 dark:border-white/10 pt-6">
+                                {/* Added w-[85%] sm:w-[75%] to stop the border and text from bleeding into the right-aligned image */}
+                                <div className="mt-8 border-t border-gray-100 dark:border-white/10 pt-6 w-[85%] sm:w-[75%] relative z-20">
                                     <ul className="space-y-3">
                                         {service.servicesList.map((item, index) => (
                                             <li key={index} className="flex items-start gap-3 text-sm font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-gray-200 transition-colors duration-300">

@@ -1,55 +1,243 @@
 "use client";
 
-import Link from "next/link";
+import { useState } from "react";
+import Image from "next/image";
+
+// --- CERTIFICATE DATA ENGINE ---
+const CERTIFICATES = [
+     {
+        id: "itu",
+        title: "AI For Good Impact Initiative",
+        issuer: "International Telecommunication Union",
+        date: "May 2026",
+        description: "Hands-on capacity certification by the UN's ITU (AI for Good), Google.org, and Giga. Validates proficiency in the Arduino IDE toolchain, dual-brain microcontroller architectures (ESP32 & ESP32-S3-CAM), and I2C communication protocols. Confirms practical skills in machine kinematics, motor actuation, Edge AI vision modeling, and data classification pipelines. Certifies pedagogical standards to deploy STEM and robotics curriculum models globally. ",
+        skills: ["Artificial Intelligence (AI)", "Robotics Engineering", "Arduino IDE Development", "Edge AI & Computer Vision", "Embedded Systems & Microcontrollers", "Project-Based Learnin"],
+        imagePath: "/images/certs/aiforgood.jpg", 
+    },
+     {
+        id: "aws",
+        title: "AWS Cloud Practitioner",
+        issuer: "Amazon Web Services",
+        date: "July 2025",
+        description: "A professional cloud credential validating foundational mastery of the Amazon Web Services (AWS) ecosystem and core cloud computing principles. This certification confirms technical proficiency in cloud architectural design patterns, secure infrastructure development, global infrastructure deployment, and compliance frameworks. It demonstrates a robust operational understanding of core AWS services including compute, storage, networking, and database management alongside standardized cloud pricing models, billing structures, and support architectures.",
+        skills: ["Cloud Computing & Infrastructure", "Cloud Storage Solutions", "Cloud Databases", "Network Security & Compliance Frameworks", "Cloud Cost Optimization", "IAM", "Compute Services", "Network Security & Compliance Frameworks"],
+        imagePath: "/images/certs/aws.png", 
+    },
+    {
+        id: "esg",
+        title: "Carbon & ESG Analyst",
+        issuer: "University of Cambridge Online",
+        date: "April 2026",
+        description: "Intensive program focused on practical applications of Artificial Intelligence, prompt engineering, and leveraging AI tools for career advancement and technical problem-solving.",
+        skills: ["Business Analysis", "Environmental Management.", "Environmental Regulations", "Climate Change", "Commercial strategy", "Communication"],
+        imagePath: "/images/certs/esg.jpg", 
+    },
+    {
+        id: "alx",
+        title: "ALX AI Career Essentials",
+        issuer: "ALX Africa",
+        date: "July 2024",
+        description: "Intensive program focused on practical applications of Artificial Intelligence, prompt engineering, and leveraging AI tools for career advancement and technical problem-solving.",
+        skills: ["AI Tools", "Prompt Engineering", "Tech Leadership"],
+        imagePath: "/images/certs/alx.png", 
+    },
+    {
+        id: "gac",
+        title: "Google Gemini",
+        issuer: "Google Gemini Academy",
+        date: "Nov 2025",
+        description: "Validation of overall understanding of the AWS Cloud platform, covering basic cloud concepts and security, services, terminology, and pricing.",
+        skills: ["AI Tools", "Prompt Engineering", "Tech Leadership"],
+        imagePath: "/images/certs/gac.png",
+    },
+    {
+        id: "alx-va",
+        title: "ALX Virtual Assistant Program",
+        issuer: "ALX Africa",
+        date: "October 2024",
+        description: "Comprehensive training in administrative support, technical project management, communication, and digital workspace organization.",
+        skills: ["Project Management", "Digital Administration", "Communication"],
+        imagePath: "/images/certs/alx-va.jpg",
+    },
+    
+    {
+        id: "data-analytics",
+        title: "Data Analytics Specialization",
+        issuer: "Technical Institute",
+        date: "January 2026",
+        description: "Advanced certification covering data management, statistical analysis, Python, and creating predictive models for enterprise environments.",
+        skills: ["Python", "Machine Learning", "Data Visualization"],
+        imagePath: "/images/certs/data.jpg",
+    }
+];
 
 export default function CertificatesPage() {
+    const [activeId, setActiveId] = useState(CERTIFICATES[0].id);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    
+    const activeCert = CERTIFICATES.find(cert => cert.id === activeId) || CERTIFICATES[0];
+
     return (
-        <main className="min-h-screen bg-gray-50 dark:bg-[#050505] flex items-center justify-center p-6 relative overflow-hidden pt-24">
+        <main className="min-h-screen bg-gray-50 dark:bg-[#050505] pb-24 relative overflow-hidden">
 
             {/* --- BLUEPRINT GRID BACKGROUND --- */}
             <div
-                className="absolute inset-0 pointer-events-none opacity-[0.05] dark:opacity-[0.03] z-0"
+                className="absolute inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.02] z-0"
                 style={{
                     backgroundImage: 'linear-gradient(currentColor 1px, transparent 1px), linear-gradient(90deg, currentColor 1px, transparent 1px)',
                     backgroundSize: '40px 40px'
                 }}
             />
 
-            {/* --- ARCHITECTURAL MAINTENANCE BOX --- */}
-            <div className="relative z-10 w-full max-w-2xl bg-white dark:bg-[#0A0A0C] border border-gray-200 dark:border-white/10 p-10 sm:p-16 flex flex-col items-center text-center shadow-xl">
-
-                {/* Top Accent Line */}
-                <div className="absolute top-0 left-0 w-full h-1 bg-primary"></div>
-
-                {/* REALISTIC EDITORIAL BADGE */}
-                <div className="mb-8 bg-gray-900 dark:bg-white px-5 py-2">
-                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white dark:text-black">
-                        Maintenance Notice
+            {/* --- PREMIUM TECH LINE BANNER HEADER --- */}
+            <section className="relative w-full h-[32vh] min-h-[260px] max-h-[320px] mt-0 mb-16 bg-[#04060A] overflow-hidden flex items-center z-10 border-b border-gray-200 dark:border-white/10">
+                <Image
+                    src="/images/bg.jpg"
+                    alt="Technical Achievement Graphics"
+                    fill
+                    className="object-cover opacity-85 dark:opacity-75"
+                    priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent"></div>
+                <div className="absolute inset-0 flex flex-col justify-center max-w-[1200px] mx-auto px-6 sm:px-12 lg:px-16 w-full pt-12">
+                    <span className="text-xs sm:text-sm font-mono tracking-[0.4em] text-primary font-black uppercase mb-3 block opacity-95">
+                        // NEVER GIVE UP
                     </span>
+                    <h1 className="text-[2.25rem] sm:text-[1.75rem] md:text-[25rem] lg:text-[2.5rem] font-black uppercase tracking-tighter leading-[0.95] text-white">
+                        Professional <br />
+                        Certificates.
+                    </h1>
+                </div>
+            </section>
+
+            {/* --- CORE CONTENT LAYOUT --- */}
+            <div className="max-w-[1200px] mx-auto relative z-10 flex flex-col lg:flex-row gap-12 lg:gap-20 px-6 sm:px-12 lg:px-16">
+
+                {/* LEFT COLUMN: MINIMALIST ACCENTED NAVIGATION */}
+                <aside className="w-full lg:w-1/3 flex flex-col shrink-0 lg:pt-4">
+                    <div className="flex flex-col border-l border-gray-300 dark:border-white/10 ml-2">
+                        {CERTIFICATES.map((cert) => {
+                            const isActive = activeId === cert.id;
+                            return (
+                                <button
+                                    key={cert.id}
+                                    onClick={() => setActiveId(cert.id)}
+                                    className="relative flex items-center py-5 pl-6 text-left transition-all duration-300 group rounded-none"
+                                >
+                                    {isActive && (
+                                        <div className="absolute left-[-1px] top-0 bottom-0 w-[3px] bg-primary" />
+                                    )}
+                                    <h3 className={`text-sm sm:text-base tracking-wide transition-colors duration-300
+                                        ${isActive
+                                            ? "font-black text-gray-900 dark:text-white"
+                                            : "font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white"}
+                                    `}>
+                                        {cert.title}
+                                    </h3>
+                                </button>
+                            );
+                        })}
+                    </div>
+                </aside>
+
+                {/* RIGHT COLUMN: DOCUMENT PRESENTATION & METADATA */}
+                <div key={activeCert.id} className="w-full lg:w-2/3 flex flex-col animate-in fade-in slide-in-from-right-4 duration-500">
+                    <div className="flex flex-col md:flex-row gap-10 lg:gap-14 items-start mb-12 w-full">
+
+                        {/* Flat Architectural Document Frame - Interactive Zoom-In Trigger */}
+                        <div 
+                            onClick={() => setIsModalOpen(true)}
+                            className="w-full max-w-[420px] aspect-[1.414/1] bg-white dark:bg-[#0A0A0C] border border-gray-200 dark:border-white/10 p-2 relative shrink-0 cursor-zoom-in group transition-all duration-300 hover:border-primary/40 dark:hover:border-primary/40"
+                        >
+                            <div className="relative w-full h-full border border-gray-100 dark:border-white/5 overflow-hidden">
+                                <Image
+                                    src={activeCert.imagePath}
+                                    alt={activeCert.title}
+                                    fill
+                                    className="object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                                />
+                                <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-400 bg-gray-100 dark:bg-[#0A0A0C] -z-10">
+                                    <svg className="w-8 h-8 mb-2 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="square" strokeLinejoin="miter" strokeWidth="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                                    <span className="text-[10px] font-mono uppercase tracking-widest opacity-60">Image File Offline</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Vertically Stacked Parameters Panel (DI / I Area) */}
+                        <div className="flex flex-col gap-6 md:gap-8 pt-2 w-full md:w-auto">
+                            <div className="flex flex-col gap-1.5 border-l-2 border-primary pl-4">
+                                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500">Date Issued</span>
+                                <span className="text-sm sm:text-base font-bold text-gray-900 dark:text-white whitespace-nowrap">
+                                    {activeCert.date}
+                                </span>
+                            </div>
+                            <div className="hidden md:block w-8 h-px bg-gray-200 dark:bg-white/10 ml-4"></div>
+                            <div className="flex flex-col gap-1.5 border-l-2 border-primary pl-4">
+                                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500">Authorized Issuer</span>
+                                <span className="text-sm sm:text-base font-bold text-gray-900 dark:text-white whitespace-nowrap">
+                                    {activeCert.issuer}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Detailed Analysis & Skills Matrix Block */}
+                    <div className="flex flex-col gap-8 max-w-2xl">
+                        <div>
+                            <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 font-medium leading-relaxed">
+                                {activeCert.description}
+                            </p>
+                        </div>
+                        <div className="pt-2">
+                            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 mb-4 block">
+                                Validated Skills Matrix
+                            </span>
+                            <div className="flex flex-wrap gap-2">
+                                {activeCert.skills.map((skill, i) => (
+                                    <span 
+                                        key={i} 
+                                        className="px-4 py-2 border border-gray-200 dark:border-white/10 text-xs font-bold uppercase tracking-wider text-gray-900 dark:text-white bg-white dark:bg-[#121214] shadow-sm rounded-none"
+                                    >
+                                        {skill}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                {/* Header */}
-                <h1 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight text-gray-900 dark:text-white mb-6 leading-[1.1]">
-                    Certificates <br className="hidden sm:block" /> & Credentials.
-                </h1>
-
-                <div className="w-12 h-1 bg-gray-300 dark:bg-gray-800 mb-8"></div>
-
-                {/* Message */}
-                <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 font-medium leading-relaxed mb-12 max-w-md">
-                    This page is currently under construction. My professional certifications will be available for viewing here shortly.
-                </p>
-
-                {/* Return Button */}
-                <Link
-                    href="/"
-                    className="group inline-flex items-center gap-3 px-8 py-4 border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white font-black text-xs uppercase tracking-[0.2em] rounded-none hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-300"
-                >
-                    <svg className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="square" strokeLinejoin="miter" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
-                    <span>Return Home</span>
-                </Link>
-
             </div>
+
+            {/* --- LIGHTBOX MODAL OVERLAY --- */}
+            {isModalOpen && (
+                <div 
+                    onClick={() => setIsModalOpen(false)}
+                    className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 sm:p-8 md:p-12 cursor-zoom-out animate-in fade-in duration-300 ease-out"
+                >
+                    {/* Close Trigger Button */}
+                    <button 
+                        onClick={() => setIsModalOpen(false)}
+                        className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors p-2 z-50"
+                        aria-label="Close high resolution view"
+                    >
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+
+                    {/* Full-Screen Image Container */}
+                    <div className="relative w-full h-full max-w-6xl max-h-[85vh]">
+                        <Image
+                            src={activeCert.imagePath}
+                            alt={`${activeCert.title} high resolution preview`}
+                            fill
+                            className="object-contain"
+                            sizes="100vw"
+                            priority
+                        />
+                    </div>
+                </div>
+            )}
         </main>
     );
 }

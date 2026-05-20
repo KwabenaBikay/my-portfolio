@@ -1,6 +1,7 @@
 import './globals.css'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import UpdateNotice from '../components/UpdateNotice'
 
 export const metadata = {
   title: 'Bismark Amanpene - Portfolio',
@@ -15,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="bg-background-light dark:bg-background-dark font-display">
+        <UpdateNotice />
         <Navbar />
         <main>{children}</main>
         <Footer />

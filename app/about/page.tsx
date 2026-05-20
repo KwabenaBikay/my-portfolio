@@ -25,20 +25,26 @@ export default function AboutPage() {
     <main className="min-h-screen bg-background-light dark:bg-background-dark text-slate-800 dark:text-white pt-24 pb-24">
 
       {/* --- MASTER ALIGNMENT CONTAINER --- */}
-      {/* This ensures the banner and the content box have exactly the same right-edge alignment for the cutout math */}
       <div className="max-w-5xl mx-auto px-4 sm:px-8">
 
         {/* --- BANNER SECTION --- */}
-        <div className="relative w-full h-40 sm:h-64 bg-gradient-to-br from-primary/20 via-primary/10 to-gray-200 dark:from-primary/30 dark:via-primary/20 dark:to-gray-800 rounded-2xl sm:rounded-t-2xl sm:rounded-b-none overflow-visible shadow-sm">
+        {/* Preserves the rounded-2xl boundaries and layout shape from before */}
+        <div className="relative w-full h-40 sm:h-64 bg-[#04060A] rounded-2xl sm:rounded-t-2xl sm:rounded-b-none overflow-visible shadow-sm">
 
-          {/* Banner Background Pattern */}
-          <div className="absolute inset-0 opacity-10 dark:opacity-5 rounded-2xl sm:rounded-t-2xl overflow-hidden pointer-events-none">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
-          </div>
+          {/* New Interactive Graphic Banner Image */}
+          <Image
+            src="/images/about5.jpg"
+            alt="Technical Banner Graphics"
+            fill
+            className="object-cover opacity-85 dark:opacity-70 rounded-2xl sm:rounded-t-2xl"
+            priority
+          />
 
-          {/* THE 54 WATERMARKS WALL */}
-          <div className="absolute inset-0 overflow-hidden mix-blend-overlay opacity-20 dark:opacity-30 pointer-events-none rounded-2xl sm:rounded-t-2xl">
+          {/* Shadow Overlay for text visibility */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-black/80 via-black/20 to-transparent rounded-2xl sm:rounded-t-2xl"></div>
+
+          {/* THE 54 WATERMARKS WALL (Kept for rich geometric texture overlay) */}
+          <div className="absolute inset-0 overflow-hidden mix-blend-overlay opacity-15 dark:opacity-20 pointer-events-none rounded-2xl sm:rounded-t-2xl">
             <div className="w-full h-full grid grid-cols-9 grid-rows-6 gap-2 p-2">
               {watermarkArray.map((mark, i) => (
                 <div key={i} className="flex items-center justify-center">
@@ -56,9 +62,12 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Name in Banner - Centered */}
-          <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-            <h2 className="text-gray-900 dark:text-white text-2xl sm:text-3xl font-black tracking-wide uppercase text-center px-4 drop-shadow-md">
+          {/* Small Name Container - Cleanly pinned to bottom left corner */}
+          <div className="absolute bottom-4 sm:bottom-6 left-6 sm:left-8 z-10 pointer-events-none max-w-[60%] sm:max-w-[50%]">
+            <span className="text-[9px] font-mono tracking-[0.3em] text-primary font-black uppercase mb-1 block">
+              // PROFILE
+            </span>
+            <h2 className="text-white text-lg sm:text-2xl font-black tracking-tight uppercase leading-tight mix-blend-overlay opacity-95">
               Bismark Kwabena Amanpene
             </h2>
           </div>
@@ -87,12 +96,11 @@ export default function AboutPage() {
         <div className="relative mt-12 sm:mt-16 bg-primary/5 dark:bg-primary/10 border border-primary/20 p-8 sm:p-12 rounded-none mb-12 shadow-sm">
 
           {/* --- THE U-SHAPE CUTOUT MAGIC --- */}
-          {/* This renders a circle exactly matching the page background to "erase" the tint and draw the curved U-border */}
           <div className="absolute -inset-[1px] z-0 overflow-hidden pointer-events-none rounded-none">
             <div className="absolute w-[136px] sm:w-[216px] h-[136px] sm:h-[216px] -top-[115px] sm:-top-[171px] right-[5px] sm:right-[21px] rounded-full bg-background-light dark:bg-background-dark border border-primary/20" />
           </div>
 
-          {/* Content Wrapper (Z-10 keeps text above the cutout geometry) */}
+          {/* Content Wrapper */}
           <div className="relative z-10">
 
             {/* Header Section */}
@@ -191,7 +199,7 @@ export default function AboutPage() {
             </svg>
           </a>
 
-          {/* View My Work Button (Editorial Brutalist Style) */}
+          {/* View My Work Button */}
           <Link
             href="/projects"
             className="group relative inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white font-black text-sm uppercase tracking-[0.2em] rounded-none overflow-hidden transition-all"
