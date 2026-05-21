@@ -5,23 +5,32 @@ import Image from "next/image";
 
 // --- CERTIFICATE DATA ENGINE ---
 const CERTIFICATES = [
-     {
+    {
         id: "itu",
         title: "AI For Good Impact Initiative",
         issuer: "International Telecommunication Union",
         date: "May 2026",
         description: "Hands-on capacity certification by the UN's ITU (AI for Good), Google.org, and Giga. Validates proficiency in the Arduino IDE toolchain, dual-brain microcontroller architectures (ESP32 & ESP32-S3-CAM), and I2C communication protocols. Confirms practical skills in machine kinematics, motor actuation, Edge AI vision modeling, and data classification pipelines. Certifies pedagogical standards to deploy STEM and robotics curriculum models globally. ",
         skills: ["Artificial Intelligence (AI)", "Robotics Engineering", "Arduino IDE Development", "Edge AI & Computer Vision", "Embedded Systems & Microcontrollers", "Project-Based Learnin"],
-        imagePath: "/images/certs/aiforgood.jpg", 
+        imagePath: "/images/certs/aiforgood.jpg",
     },
-     {
+    {
         id: "aws",
         title: "AWS Cloud Practitioner",
         issuer: "Amazon Web Services",
         date: "July 2025",
         description: "A professional cloud credential validating foundational mastery of the Amazon Web Services (AWS) ecosystem and core cloud computing principles. This certification confirms technical proficiency in cloud architectural design patterns, secure infrastructure development, global infrastructure deployment, and compliance frameworks. It demonstrates a robust operational understanding of core AWS services including compute, storage, networking, and database management alongside standardized cloud pricing models, billing structures, and support architectures.",
         skills: ["Cloud Computing & Infrastructure", "Cloud Storage Solutions", "Cloud Databases", "Network Security & Compliance Frameworks", "Cloud Cost Optimization", "IAM", "Compute Services", "Network Security & Compliance Frameworks"],
-        imagePath: "/images/certs/aws.png", 
+        imagePath: "/images/certs/aws.png",
+    },
+    {
+        id: "data",
+        title: "Data Literacy & Analytics",
+        issuer: "DigiVibe Career Essentials",
+        date: "May 2026",
+        description: "A professional data module validating core data literacy and operational analytics capabilities. This course confirms technical competency across the data lifecycle: executing data collection, preprocessing, and rigorous cleaning protocols. It establishes proficiency in exploratory data analysis (EDA), pattern recognition, and trend interpretation. Additionally, it covers critical data governance pillars including data bias identification, global privacy laws, and secure data storage ensuring the ability to make responsible, data-driven decisions and communicate findings through impactful data storytelling.",
+        skills: ["Exploratory Data Analysis (EDA)", "Data Cleaning & Preprocessing", "Data-Driven Decision Making", "Data Storytelling & Communication", "Data Governance & Privacy Laws", "Bias & Limitation Identification"],
+        imagePath: "/images/certs/digiv.jpg",
     },
     {
         id: "esg",
@@ -30,7 +39,7 @@ const CERTIFICATES = [
         date: "April 2026",
         description: "Intensive program focused on practical applications of Artificial Intelligence, prompt engineering, and leveraging AI tools for career advancement and technical problem-solving.",
         skills: ["Business Analysis", "Environmental Management.", "Environmental Regulations", "Climate Change", "Commercial strategy", "Communication"],
-        imagePath: "/images/certs/esg.jpg", 
+        imagePath: "/images/certs/esg.jpg",
     },
     {
         id: "alx",
@@ -39,7 +48,16 @@ const CERTIFICATES = [
         date: "July 2024",
         description: "Intensive program focused on practical applications of Artificial Intelligence, prompt engineering, and leveraging AI tools for career advancement and technical problem-solving.",
         skills: ["AI Tools", "Prompt Engineering", "Tech Leadership"],
-        imagePath: "/images/certs/alx.png", 
+        imagePath: "/images/certs/alx.png",
+    },
+    {
+        id: "alx-va",
+        title: "ALX Virtual Assistant Program",
+        issuer: "ALX Africa",
+        date: "October 2024",
+        description: "Comprehensive training in administrative support, technical project management, communication, and digital workspace organization.",
+        skills: ["Project Management", "Digital Administration", "Communication"],
+        imagePath: "/images/certs/va.png",
     },
     {
         id: "gac",
@@ -51,30 +69,20 @@ const CERTIFICATES = [
         imagePath: "/images/certs/gac.png",
     },
     {
-        id: "alx-va",
-        title: "ALX Virtual Assistant Program",
-        issuer: "ALX Africa",
-        date: "October 2024",
-        description: "Comprehensive training in administrative support, technical project management, communication, and digital workspace organization.",
-        skills: ["Project Management", "Digital Administration", "Communication"],
-        imagePath: "/images/certs/alx-va.jpg",
-    },
-    
-    {
-        id: "data-analytics",
-        title: "Data Analytics Specialization",
-        issuer: "Technical Institute",
-        date: "January 2026",
-        description: "Advanced certification covering data management, statistical analysis, Python, and creating predictive models for enterprise environments.",
-        skills: ["Python", "Machine Learning", "Data Visualization"],
-        imagePath: "/images/certs/data.jpg",
+        id: "claude",
+        title: "Claude Code 101",
+        issuer: "Anthropic Academy",
+        date: "May 2026",
+        description: "An AI-powered developer certification that enables professionals to harness large language models (LLMs) for coding, automation, and building AI-integrated applications.",
+        skills: ["Large Language Models (LLMs)", "Programming Fundamentals", "AI-Assisted Coding", "Prompt Engineering", "Automation", "AI Integration"],
+        imagePath: "/images/certs/claude.jpg",
     }
 ];
 
 export default function CertificatesPage() {
     const [activeId, setActiveId] = useState(CERTIFICATES[0].id);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    
+
     const activeCert = CERTIFICATES.find(cert => cert.id === activeId) || CERTIFICATES[0];
 
     return (
@@ -145,7 +153,7 @@ export default function CertificatesPage() {
                     <div className="flex flex-col md:flex-row gap-10 lg:gap-14 items-start mb-12 w-full">
 
                         {/* Flat Architectural Document Frame - Interactive Zoom-In Trigger */}
-                        <div 
+                        <div
                             onClick={() => setIsModalOpen(true)}
                             className="w-full max-w-[420px] aspect-[1.414/1] bg-white dark:bg-[#0A0A0C] border border-gray-200 dark:border-white/10 p-2 relative shrink-0 cursor-zoom-in group transition-all duration-300 hover:border-primary/40 dark:hover:border-primary/40"
                         >
@@ -194,8 +202,8 @@ export default function CertificatesPage() {
                             </span>
                             <div className="flex flex-wrap gap-2">
                                 {activeCert.skills.map((skill, i) => (
-                                    <span 
-                                        key={i} 
+                                    <span
+                                        key={i}
                                         className="px-4 py-2 border border-gray-200 dark:border-white/10 text-xs font-bold uppercase tracking-wider text-gray-900 dark:text-white bg-white dark:bg-[#121214] shadow-sm rounded-none"
                                     >
                                         {skill}
@@ -210,12 +218,12 @@ export default function CertificatesPage() {
 
             {/* --- LIGHTBOX MODAL OVERLAY --- */}
             {isModalOpen && (
-                <div 
+                <div
                     onClick={() => setIsModalOpen(false)}
                     className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 sm:p-8 md:p-12 cursor-zoom-out animate-in fade-in duration-300 ease-out"
                 >
                     {/* Close Trigger Button */}
-                    <button 
+                    <button
                         onClick={() => setIsModalOpen(false)}
                         className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors p-2 z-50"
                         aria-label="Close high resolution view"

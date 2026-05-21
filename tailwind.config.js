@@ -7,7 +7,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#FF5722", // The Vibrant Orange from your image
+        primary: "#C2410C", // Burnt Copper / Deep Orange - Sophisticated dimmed techie orange
+        "primary-dark": "#9A3412", // Dark Rust for borders and hover states
         "background-light": "#FAFAFA", // Crisp, clean white
         "background-dark": "#18181B" // Deep charcoal black
       },
