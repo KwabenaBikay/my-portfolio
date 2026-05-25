@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 // --- CERTIFICATE DATA ENGINE ---
@@ -11,7 +11,7 @@ const CERTIFICATES = [
         issuer: "International Telecommunication Union",
         date: "May 2026",
         description: "Hands-on capacity certification by the UN's ITU (AI for Good), Google.org, and Giga. Validates proficiency in the Arduino IDE toolchain, dual-brain microcontroller architectures (ESP32 & ESP32-S3-CAM), and I2C communication protocols. Confirms practical skills in machine kinematics, motor actuation, Edge AI vision modeling, and data classification pipelines. Certifies pedagogical standards to deploy STEM and robotics curriculum models globally. ",
-        skills: ["Artificial Intelligence (AI)", "Robotics Engineering", "Arduino IDE Development", "Edge AI & Computer Vision", "Embedded Systems & Microcontrollers", "Project-Based Learnin"],
+        skills: ["Artificial Intelligence (AI)", "Robotics Engineering", "Arduino IDE Development", "Edge AI & Computer Vision", "Embedded Systems & Microcontrollers", "Project-Based Learning"],
         imagePath: "/images/certs/aiforgood.jpg",
     },
     {
@@ -20,7 +20,7 @@ const CERTIFICATES = [
         issuer: "Amazon Web Services",
         date: "July 2025",
         description: "A professional cloud credential validating foundational mastery of the Amazon Web Services (AWS) ecosystem and core cloud computing principles. This certification confirms technical proficiency in cloud architectural design patterns, secure infrastructure development, global infrastructure deployment, and compliance frameworks. It demonstrates a robust operational understanding of core AWS services including compute, storage, networking, and database management alongside standardized cloud pricing models, billing structures, and support architectures.",
-        skills: ["Cloud Computing & Infrastructure", "Cloud Storage Solutions", "Cloud Databases", "Network Security & Compliance Frameworks", "Cloud Cost Optimization", "IAM", "Compute Services", "Network Security & Compliance Frameworks"],
+        skills: ["Cloud Computing & Infrastructure", "Cloud Storage Solutions", "Cloud Databases", "Network Security & Compliance Frameworks", "Cloud Cost Optimization", "IAM", "Compute Services"],
         imagePath: "/images/certs/aws.png",
     },
     {
@@ -82,8 +82,26 @@ const CERTIFICATES = [
 export default function CertificatesPage() {
     const [activeId, setActiveId] = useState(CERTIFICATES[0].id);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
 
     const activeCert = CERTIFICATES.find(cert => cert.id === activeId) || CERTIFICATES[0];
+
+    // Auto-Scroll Alignment Engine (Simulates the iOS barrel target snapping)
+    useEffect(() => {
+        const activeElement = document.getElementById(`nav-${activeId}`);
+        if (activeElement && scrollContainerRef.current) {
+            const container = scrollContainerRef.current;
+            const containerHeight = container.clientHeight;
+            const elementTop = activeElement.offsetTop;
+            const elementHeight = activeElement.clientHeight;
+
+            // Center the selected element perfectly within the scrolling viewport mask
+            container.scrollTo({
+                top: elementTop - containerHeight / 2 + elementHeight / 2,
+                behavior: "smooth",
+            });
+        }
+    }, [activeId]);
 
     return (
         <main className="min-h-screen bg-gray-50 dark:bg-[#050505] pb-24 relative overflow-hidden">
@@ -121,24 +139,38 @@ export default function CertificatesPage() {
             {/* --- CORE CONTENT LAYOUT --- */}
             <div className="max-w-[1200px] mx-auto relative z-10 flex flex-col lg:flex-row gap-12 lg:gap-20 px-6 sm:px-12 lg:px-16">
 
-                {/* LEFT COLUMN: MINIMALIST ACCENTED NAVIGATION */}
-                <aside className="w-full lg:w-1/3 flex flex-col shrink-0 lg:pt-4">
-                    <div className="flex flex-col border-l border-gray-300 dark:border-white/10 ml-2">
+                {/* LEFT COLUMN: FIXED BARREL-PICKER NAVIGATION (iOS Style Viewport Wheel) */}
+                <aside className="w-full lg:w-1/3 flex flex-col shrink-0 relative h-[380px] lg:pt-4 overflow-hidden group">
+
+                    {/* Top Edge Fade Mask */}
+                    <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-gray-50 to-transparent dark:from-[#050505] z-20 pointer-events-none" />
+
+                    {/* Bottom Edge Fade Mask */}
+                    <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-gray-50 to-transparent dark:from-[#050505] z-20 pointer-events-none" />
+
+                    {/* Smooth Scrollable Core */}
+                    <div
+                        ref={scrollContainerRef}
+                        className="h-full overflow-y-auto scrollbar-none py-16 flex flex-col border-l border-gray-300 dark:border-white/10 ml-2 relative"
+                    >
                         {CERTIFICATES.map((cert) => {
                             const isActive = activeId === cert.id;
                             return (
                                 <button
+                                    id={`nav-${cert.id}`}
                                     key={cert.id}
                                     onClick={() => setActiveId(cert.id)}
-                                    className="relative flex items-center py-5 pl-6 text-left transition-all duration-300 group rounded-none"
+                                    className="relative flex items-center py-5 pl-6 text-left transition-all duration-300 rounded-none shrink-0"
                                 >
+                                    {/* Active Hard Accent Edge */}
                                     {isActive && (
-                                        <div className="absolute left-[-1px] top-0 bottom-0 w-[3px] bg-primary" />
+                                        <div className="absolute left-[-1px] top-0 bottom-0 w-[3px] bg-primary z-10 animate-in fade-in duration-300" />
                                     )}
-                                    <h3 className={`text-sm sm:text-base tracking-wide transition-colors duration-300
+
+                                    <h3 className={`text-sm sm:text-base tracking-wide transition-all duration-300
                                         ${isActive
-                                            ? "font-black text-gray-900 dark:text-white"
-                                            : "font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white"}
+                                            ? "font-black text-gray-900 dark:text-white scale-[1.02] origin-left"
+                                            : "font-medium text-gray-400 hover:text-gray-700 dark:text-gray-500 dark:hover:text-gray-300 opacity-60 hover:opacity-100"}
                                     `}>
                                         {cert.title}
                                     </h3>
