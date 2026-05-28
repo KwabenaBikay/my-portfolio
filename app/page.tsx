@@ -284,7 +284,7 @@ export default function Home() {
           <div className="absolute top-1/2 -left-12 transform -translate-y-1/2 w-24 h-48 opacity-30 z-20 pointer-events-none hidden md:block"
             style={{ backgroundImage: 'radial-gradient(currentColor 2px, transparent 2px)', backgroundSize: '12px 12px' }}>
           </div>
-          <div className="relative w-full max-w-[500px] aspect-[4/5] bg-white dark:bg-black z-10 border border-gray-200 dark:border-gray-800 p-2 rounded-none shadow-xl">
+          <div className="relative w-full max-w-[500px] aspect-[4/5] z-10 border border-gray-200 dark:border-gray-800 rounded-none shadow-xl">
             <div className="relative w-full h-full overflow-hidden rounded-none bg-gray-100 dark:bg-gray-900">
               <Image
                 src="/images/profile.jpg"

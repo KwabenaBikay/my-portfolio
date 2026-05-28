@@ -4,7 +4,18 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 // --- CERTIFICATE DATA ENGINE ---
-const CERTIFICATES = [
+interface Certificate {
+    id: string;
+    title: string;
+    issuer: string;
+    date: string;
+    description: string;
+    skills: string[];
+    imagePath?: string;
+    images?: string[];
+}
+
+const CERTIFICATES: Certificate[] = [
     {
         id: "itu",
         title: "AI For Good Impact Initiative",
@@ -76,15 +87,72 @@ const CERTIFICATES = [
         description: "An AI-powered developer certification that enables professionals to harness large language models (LLMs) for coding, automation, and building AI-integrated applications.",
         skills: ["Large Language Models (LLMs)", "Programming Fundamentals", "AI-Assisted Coding", "Prompt Engineering", "Automation", "AI Integration"],
         imagePath: "/images/certs/claude.jpg",
-    }
+    },
+    {
+        id: "r",
+        title: "Data Analysis with R Programming",
+        issuer: "Google",
+        date: "May 2024",
+        description: "Comprehensive training in Data Analysis with R Programming.",
+        skills: ["R Programming", "Data Analysis", "Data Visualization"],
+        imagePath: "/images/certs/r.png",
+    },
+    {
+        id: "tsf",
+        title: "Technical Support Fundamentals",
+        issuer: "Google",
+        date: "Dec. 2022",
+        description: "Comprehensive training in technical support fundamentals.",
+        skills: ["Technical Support", "Troubleshooting", "Customer Service"],
+        imagePath: "/images/certs/ts.jpg",
+    },
+    {
+        id: "wordp",
+        title: "Word Press",
+        issuer: "Coursera Project Network",
+        date: "Jan. 2025",
+        description: "Comprehensive training in WordPress.",
+        skills: ["WordPress", "Website Design", "Website Management"],
+        imagePath: "/images/certs/wordp.jpg",
+    },
+    {
+        id: "py",
+        title: "Python Essentials 1 & 2",
+        issuer: "Cisco Networking Academy",
+        date: "Nov 2025",
+        description: "Comprehensive training in Python Programming.",
+        skills: ["Python", "Programming", "Data Analysis"],
+        images: ["/images/certs/py1.jpg", "/images/certs/py2.jpg"],
+    },
+    {
+        id: "ai",
+        title: "AI Learning Lab",
+        issuer: "Google Developer Ecosystem",
+        date: "May 2026",
+        description: "Comprehensive training in AI Learning Lab.",
+        skills: ["AI", "Machine Learning", "Data Analysis"],
+        images: ["/images/certs/lab.jpg"],
+    },
+    {
+        id: "hack",
+        title: "Hackathong",
+        issuer: "IT Student Union-TTU",
+        date: "July 2025",
+        description: "This hackathon challenged participants to design, develop and present a personality classification using machine learning algorithms.",
+        skills: ["AI", "Machine Learning", "Data Analysis"],
+        images: ["/images/certs/hackathon.jpg"],
+    },
 ];
 
 export default function CertificatesPage() {
     const [activeId, setActiveId] = useState(CERTIFICATES[0].id);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const scrollContainerRef = useRef<HTMLDivElement>(null);
 
     const activeCert = CERTIFICATES.find(cert => cert.id === activeId) || CERTIFICATES[0];
+    const images = activeCert.images || (activeCert.imagePath ? [activeCert.imagePath] : []);
+    const currentImage = images[currentImageIndex] || "";
 
     // Auto-Scroll Alignment Engine (Simulates the iOS barrel target snapping)
     useEffect(() => {
@@ -101,6 +169,7 @@ export default function CertificatesPage() {
                 behavior: "smooth",
             });
         }
+        setCurrentImageIndex(0);
     }, [activeId]);
 
     return (
@@ -191,7 +260,7 @@ export default function CertificatesPage() {
                         >
                             <div className="relative w-full h-full border border-gray-100 dark:border-white/5 overflow-hidden">
                                 <Image
-                                    src={activeCert.imagePath}
+                                    src={currentImage}
                                     alt={activeCert.title}
                                     fill
                                     className="object-contain transition-transform duration-500 group-hover:scale-[1.02]"
@@ -200,6 +269,43 @@ export default function CertificatesPage() {
                                     <svg className="w-8 h-8 mb-2 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="square" strokeLinejoin="miter" strokeWidth="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                                     <span className="text-[10px] font-mono uppercase tracking-widest opacity-60">Image File Offline</span>
                                 </div>
+
+                                {images.length > 1 && (
+                                    <>
+                                        {/* Left Navigation Arrow */}
+                                        <button
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                setCurrentImageIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+                                            }}
+                                            className="absolute left-2 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-8 h-8 rounded-full bg-black/60 hover:bg-black/85 text-white border border-white/10 backdrop-blur-sm transition-all duration-200 cursor-pointer"
+                                            aria-label="Previous certificate image"
+                                        >
+                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                                                <path strokeLinecap="square" strokeLinejoin="miter" d="M15 19l-7-7 7-7" />
+                                            </svg>
+                                        </button>
+
+                                        {/* Right Navigation Arrow */}
+                                        <button
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                setCurrentImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+                                            }}
+                                            className="absolute right-2 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-8 h-8 rounded-full bg-black/60 hover:bg-black/85 text-white border border-white/10 backdrop-blur-sm transition-all duration-200 cursor-pointer"
+                                            aria-label="Next certificate image"
+                                        >
+                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                                                <path strokeLinecap="square" strokeLinejoin="miter" d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </button>
+
+                                        {/* Dynamic Page Counter */}
+                                        <div className="absolute bottom-2 right-2 z-20 px-2 py-0.5 bg-black/60 border border-white/10 backdrop-blur-sm text-[10px] font-mono text-white/90 uppercase tracking-wider">
+                                            {currentImageIndex + 1} / {images.length}
+                                        </div>
+                                    </>
+                                )}
                             </div>
                         </div>
 
@@ -257,7 +363,7 @@ export default function CertificatesPage() {
                     {/* Close Trigger Button */}
                     <button
                         onClick={() => setIsModalOpen(false)}
-                        className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors p-2 z-50"
+                        className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors p-2 z-50 cursor-pointer"
                         aria-label="Close high resolution view"
                     >
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -265,10 +371,50 @@ export default function CertificatesPage() {
                         </svg>
                     </button>
 
+                    {images.length > 1 && (
+                        <>
+                            {/* Left Navigation Arrow inside modal */}
+                            <button
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setCurrentImageIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+                                }}
+                                className="absolute left-6 top-1/2 -translate-y-1/2 z-50 flex items-center justify-center w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/20 transition-all duration-200 cursor-pointer"
+                                aria-label="Previous image"
+                            >
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                    <path strokeLinecap="square" strokeLinejoin="miter" d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+
+                            {/* Right Navigation Arrow inside modal */}
+                            <button
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setCurrentImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+                                }}
+                                className="absolute right-6 top-1/2 -translate-y-1/2 z-50 flex items-center justify-center w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/20 transition-all duration-200 cursor-pointer"
+                                aria-label="Next image"
+                            >
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                    <path strokeLinecap="square" strokeLinejoin="miter" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+
+                            {/* Dynamic Page Counter inside modal */}
+                            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-50 px-4 py-1.5 bg-black/60 border border-white/10 backdrop-blur-md rounded-full text-xs font-mono text-white tracking-widest">
+                                {currentImageIndex + 1} / {images.length}
+                            </div>
+                        </>
+                    )}
+
                     {/* Full-Screen Image Container */}
-                    <div className="relative w-full h-full max-w-6xl max-h-[85vh]">
+                    <div
+                        onClick={(e) => e.stopPropagation()} // Stop closing when clicking image itself
+                        className="relative w-full h-full max-w-6xl max-h-[85vh] cursor-default"
+                    >
                         <Image
-                            src={activeCert.imagePath}
+                            src={currentImage}
                             alt={`${activeCert.title} high resolution preview`}
                             fill
                             className="object-contain"
