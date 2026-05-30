@@ -50,6 +50,15 @@ export default function ProjectsPage() {
       link: "https://dhlkasoa.bwehltd.com/",
     },
     {
+      id: "bree",
+      category: "Web",
+      title: "Spa Management System",
+      description: "A Spa Management system with portals for Admin, Staff and Supervisor. The Main aim of this system is to automatic reporting of daily activities and records.",
+      image: "/images/breeze.png",
+      techs: ["HTML", "CSS", "JavaScript"],
+      link: ""
+    },
+    {
       id: "Personal Portfolio",
       category: "Web",
       title: "My Personal Portfolio",
