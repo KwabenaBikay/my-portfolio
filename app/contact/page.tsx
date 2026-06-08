@@ -2,6 +2,7 @@
 
 import { useActionState } from "react";
 import { useFormStatus } from "react-dom";
+import Image from "next/image";
 import { submitContactForm } from "../actions"; // Import the server action
 
 // --- SOCIAL LINKS DATA WITH BRAND HOVER COLORS ---
@@ -82,7 +83,19 @@ export default function ContactPage() {
   const [state, formAction] = useActionState(submitContactForm, initialState);
 
   return (
-    <main className="min-h-screen bg-gray-50 dark:bg-[#050505] text-slate-800 dark:text-white pt-32 pb-24 px-4 sm:px-8 relative overflow-hidden">
+    <main className="min-h-screen bg-gray-50 dark:bg-[#050505] text-slate-800 dark:text-white pb-24 relative overflow-hidden">
+
+      {/* --- PREMIUM TECH LINE BANNER HEADER --- */}
+      <section className="relative w-full h-[32vh] min-h-[260px] max-h-[320px] mt-0 mb-0 bg-[#04060A] overflow-hidden flex items-center z-10 border-b border-gray-200 dark:border-white/10">
+        <Image
+          src="/images/cot.jpg"
+          alt="Contact Header Graphics"
+          fill
+          className="object-cover opacity-85 dark:opacity-75"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-transparent"></div>
+      </section>
 
       {/* --- DOTTED SPORTS BACKGROUND PATTERN --- */}
       <div
@@ -93,7 +106,7 @@ export default function ContactPage() {
         }}
       />
 
-      <div className="max-w-6xl mx-auto relative z-10 mt-8">
+      <div className="max-w-6xl mx-auto relative z-20 -mt-6 sm:-mt-10 px-4 sm:px-8">
 
         {/* --- FLOATING CARD CONTAINER --- */}
         <div className="grid grid-cols-1 lg:grid-cols-2 border border-gray-200 dark:border-white/10 shadow-2xl dark:shadow-primary/5 bg-white dark:bg-[#0A0A0C]">

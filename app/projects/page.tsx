@@ -47,16 +47,16 @@ export default function ProjectsPage() {
       description: "A modern, professional, secure brochure website and portal layout for the DHL-Bweh institution.",
       image: "/images/dhl-bweh.jpg",
       techs: ["HTML", "CSS", "JavaScript"],
-      link: "https://dhlkasoa.bwehltd.com/",
+      link: "https://www.dhl-bweha.com/?i=1#home",
     },
     {
-      id: "bree",
-      category: "Web",
+      id: "breeze",
+      category: "Data",
       title: "Spa Management System",
       description: "A Spa Management system with portals for Admin, Staff and Supervisor. The Main aim of this system is to automatic reporting of daily activities and records.",
       image: "/images/breeze.png",
       techs: ["HTML", "CSS", "JavaScript"],
-      link: ""
+      link: " "
     },
     {
       id: "Personal Portfolio",
@@ -71,7 +71,7 @@ export default function ProjectsPage() {
       id: "AI",
       category: "ML & AI",
       title: "PerfectFarm",
-      description: "PerfectFarm AI is an intelligent agricultural assistant that provides real-time crop diagnostics and  recommendations through simple image uploads. The system instantly detects diseases, pests, and nutient deficiencies while offering actionable prevention strategies and localized weather-driven advisories to optimize yields. To ensure broad accessibility, it supports multiple languages like Swahili, Twi, and Hausa, delivering expert analysis in the farmer's preferred tongue. Users can track their progress through an offline-ready scan history and easily share comprehensive PDF reports with others via messaging apps. Ultimately, this tool empowers farmers by bridging the gap between advanced AI technology and practical, on-the-ground farming solutions.",
+      description: "An intelligent agricultural assistant offering real-time crop disease diagnostics, localized weather advisories, and multi-language support through simple image uploads.",
       image: "/images/perfectfarm.png",
       techs: ["Jupyter", "Python", "Streamlit", "Machine Learning"],
       link: "https://perfectfarm-434286480857.europe-west2.run.app/",
@@ -207,7 +207,7 @@ export default function ProjectsPage() {
         </div>
 
         {/* --- PREMIUM EDITORIAL PROJECT GRID --- */}
-        <section key={activeCategory} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 animate-in fade-in slide-in-from-bottom-4 duration-700 ease-out">
+        <section key={activeCategory} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 animate-in fade-in slide-in-from-bottom-4 duration-700 ease-out">
           {displayedProjects.map((project) => (
             <div
               key={project.id}
@@ -224,30 +224,30 @@ export default function ProjectsPage() {
                   src={project.image || "/images/placeholder.jpg"}
                   alt={project.title}
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                   className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                 />
               </div>
 
               {/* Content Wrapper */}
-              <div className="flex flex-col flex-grow p-6 sm:p-8">
+              <div className="flex flex-col flex-grow p-5 sm:p-6">
 
-                <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight leading-none text-gray-900 dark:text-white mb-4 group-hover:text-primary transition-colors duration-300">
+                <h2 className={`text-lg sm:text-xl font-black tracking-tight leading-tight text-gray-900 dark:text-white mb-3 group-hover:text-primary transition-colors duration-300 ${project.title === "PerfectFarm" ? "" : "uppercase"}`}>
                   {project.title}
                 </h2>
 
-                <p className="text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-8 flex-grow">
+                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-6 flex-grow">
                   {project.description}
                 </p>
 
                 {/* --- COMPACT ACTION BUTTON OR INTERNAL USE FALLBACK --- */}
-                <div className="flex justify-start mt-auto pt-6 border-t border-gray-100 dark:border-white/10">
+                <div className="flex justify-start mt-auto pt-5 border-t border-gray-100 dark:border-white/10">
                   {project.link && project.link.trim() !== "" ? (
                     <a
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group/btn flex items-center gap-2 px-5 py-2.5 bg-primary border border-primary text-white hover:bg-gray-100 dark:hover:bg-[#1A1A1C] hover:text-gray-900 dark:hover:text-white hover:border-gray-200 dark:hover:border-gray-800 font-bold text-[10px] sm:text-xs uppercase tracking-[0.2em] rounded-none transition-colors duration-300 shrink-0"
+                      className="group/btn flex items-center gap-2 px-4 py-2 bg-primary border border-primary text-white hover:bg-gray-100 dark:hover:bg-[#1A1A1C] hover:text-gray-900 dark:hover:text-white hover:border-gray-200 dark:hover:border-gray-800 font-bold text-[10px] sm:text-xs uppercase tracking-[0.2em] rounded-none transition-colors duration-300 shrink-0"
                     >
                       <span>Visit</span>
                       <svg className="w-3.5 h-3.5 transform group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -255,7 +255,7 @@ export default function ProjectsPage() {
                       </svg>
                     </a>
                   ) : (
-                    <div className="flex items-center gap-2 px-5 py-2.5 bg-gray-50 dark:bg-[#0A0A0C] border border-gray-200 dark:border-white/10 text-gray-400 dark:text-gray-600 font-bold text-[10px] sm:text-xs uppercase tracking-[0.2em] rounded-none shrink-0 cursor-not-allowed select-none">
+                    <div className="flex items-center gap-2 px-4 py-2 bg-gray-50 dark:bg-[#0A0A0C] border border-gray-200 dark:border-white/10 text-gray-400 dark:text-gray-600 font-bold text-[10px] sm:text-xs uppercase tracking-[0.2em] rounded-none shrink-0 cursor-not-allowed select-none">
                       <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                       </svg>

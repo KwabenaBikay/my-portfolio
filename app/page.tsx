@@ -506,8 +506,8 @@ export default function Home() {
           </Link>
         </div>
 
-        {/* Sharp 3-Column Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {/* Sharp 4-Column Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
           {/* Project 1 */}
           <div 
@@ -519,7 +519,7 @@ export default function Home() {
                 src="/images/FYP.png"
                 alt="Student Final CGPA Predictor"
                 fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                 className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
               />
             </div>
@@ -543,7 +543,7 @@ export default function Home() {
                 src="/images/West3.png"
                 alt="West 3 Hotel"
                 fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                 className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
               />
             </div>
@@ -567,7 +567,7 @@ export default function Home() {
                 src="/images/excel.png"
                 alt="Corporate Sales Dashboard"
                 fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                 className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
               />
             </div>
@@ -576,6 +576,30 @@ export default function Home() {
               <h3 className="text-xl font-black uppercase tracking-tight text-gray-900 dark:text-white mb-3">Corporate Sales Dashboard</h3>
               <p className="text-sm text-gray-600 dark:text-gray-400 font-medium mb-6 flex-grow">A comprehensive Excel dashboard visualizing sales trends, profit by segment, and advanced filtering logic.</p>
               <Link href="/projects#Sales-Dashboard" className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.1em] text-gray-900 dark:text-white group-hover:text-primary transition-colors mt-auto">
+                Explore Project <svg className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="square" strokeLinejoin="miter" strokeWidth="2" d="M5 12h14M12 5l7 7-7 7" /></svg>
+              </Link>
+            </div>
+          </div>
+
+          {/* Project 4 */}
+          <div 
+            onMouseMove={handleMouseMove}
+            className="group spotlight-card relative flex flex-col bg-white dark:bg-[#121214] border border-gray-200 dark:border-white/10 rounded-none overflow-hidden transition-colors hover:border-primary dark:hover:border-primary"
+          >
+            <div className="relative w-full aspect-video overflow-hidden border-b border-gray-200 dark:border-white/10 bg-gray-100 dark:bg-[#0A0A0C]">
+              <Image
+                src="/images/perfectfarm.png"
+                alt="PerfectFarm"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+            </div>
+            <div className="p-6 flex flex-col flex-grow">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 mb-2 block">ML & AI</span>
+              <h3 className="text-xl font-black tracking-tight text-gray-900 dark:text-white mb-3">PerfectFarm</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 font-medium mb-6 flex-grow">An intelligent agricultural assistant offering real-time crop disease diagnostics, localized weather advisories, and multi-language support.</p>
+              <Link href="/projects#AI" className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.1em] text-gray-900 dark:text-white group-hover:text-primary transition-colors mt-auto">
                 Explore Project <svg className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="square" strokeLinejoin="miter" strokeWidth="2" d="M5 12h14M12 5l7 7-7 7" /></svg>
               </Link>
             </div>

@@ -48,7 +48,7 @@ const CERTIFICATES: Certificate[] = [
         title: "Carbon & ESG Analyst",
         issuer: "University of Cambridge Online",
         date: "April 2026",
-        description: "Intensive program focused on practical applications of Artificial Intelligence, prompt engineering, and leveraging AI tools for career advancement and technical problem-solving.",
+        description: "Conducted a comprehensive Carbon and ESG analysis of MTN Ghana’s public sustainability disclosures using the UK Transition Plan Taskforce (TPT) framework. Evaluated double materiality risks and mapped detailed initiatives across Scope 1, 2, and 3 emissions including on-site diesel usage, grid electricity consumption, and value chain e-waste recovery. Developed an actionable roadmap aligning corporate targets with a Net Zero 2040 ambition, demonstrating how data-driven analysis can bridge the gap between corporate infrastructure and global climate goals.    ",
         skills: ["Business Analysis", "Environmental Management.", "Environmental Regulations", "Climate Change", "Commercial strategy", "Communication"],
         imagePath: "/images/certs/esg.jpg",
     },

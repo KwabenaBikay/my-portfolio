@@ -269,11 +269,11 @@ export default function ServicesPage() {
                 </div>
 
                 {/* --- PREMIUM EDITORIAL GRID --- */}
-                <section key={activeTab} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 animate-in fade-in slide-in-from-bottom-4 duration-700 ease-out">
+                <section key={activeTab} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 animate-in fade-in slide-in-from-bottom-4 duration-700 ease-out">
                     {displayedServices.map((service) => (
                         <div
                             key={service.id}
-                            className="group relative flex flex-col bg-white dark:bg-[#121214] border border-gray-200 dark:border-white/10 rounded-none overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:border-primary/50 dark:hover:border-primary/50 h-[450px]"
+                            className="group relative flex flex-col bg-white dark:bg-[#121214] border border-gray-200 dark:border-white/10 rounded-none overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:border-primary/50 dark:hover:border-primary/50 h-[420px]"
                         >
 
                             {/* Animated Top Border Reveal */}
@@ -301,29 +301,28 @@ export default function ServicesPage() {
                             </div>
 
                             {/* Card Content Wrapper */}
-                            <div className="relative z-10 flex flex-col h-full p-8 sm:p-10">
+                            <div className="relative z-10 flex flex-col h-full p-6">
 
                                 {/* Header Section */}
-                                <div className="mb-6">
-                                    <span className="inline-block text-xs font-black uppercase tracking-[0.2em] text-primary mb-4">
+                                <div className="mb-4">
+                                    <span className="inline-block text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-2">
                     // {service.categoryLabel}
                                     </span>
-                                    <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight leading-none text-gray-900 dark:text-white">
+                                    <h2 className="text-lg sm:text-xl font-black uppercase tracking-tight leading-tight text-gray-900 dark:text-white">
                                         {service.title}
                                     </h2>
                                 </div>
 
                                 {/* Description */}
-                                <p className="text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-auto pr-4">
+                                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-auto pr-4">
                                     {service.description}
                                 </p>
 
                                 {/* List Section */}
-                                {/* Added w-[85%] sm:w-[75%] to stop the border and text from bleeding into the right-aligned image */}
-                                <div className="mt-8 border-t border-gray-100 dark:border-white/10 pt-6 w-[85%] sm:w-[75%] relative z-20">
-                                    <ul className="space-y-3">
+                                <div className="mt-6 border-t border-gray-100 dark:border-white/10 pt-4 w-[85%] sm:w-[75%] relative z-20">
+                                    <ul className="space-y-2">
                                         {service.servicesList.map((item, index) => (
-                                            <li key={index} className="flex items-start gap-3 text-sm font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-gray-200 transition-colors duration-300">
+                                            <li key={index} className="flex items-start gap-3 text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-gray-200 transition-colors duration-300">
                                                 <span className="w-1.5 h-1.5 mt-1.5 bg-primary rounded-none flex-shrink-0" />
                                                 {item}
                                             </li>
